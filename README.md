@@ -31,7 +31,7 @@ Question: How many films have a replacement cost in the "low" group?
     GROUP BY 
         cost_range;
       
-## Question 3:
+## Question 3
 
 Create a list of the film titles including their title, length, and category name ordered descendingly by length. Filter the results to only the movies in the category 'Drama' or 'Sports'.
 Question: In which category is the longest film and how long is it?
@@ -54,7 +54,7 @@ Question: In which category is the longest film and how long is it?
           f.length DESC;
 
       
-## Question 4:
+## Question 4
 
 Create an overview of how many movies (titles) there are in each category (name).
 Question: Which category (name) is the most common among the films?
@@ -75,7 +75,7 @@ Question: Which category (name) is the most common among the films?
         ORDER BY 
             title_count DESC;
 
-## Question 5:
+## Question 5
 Task: Create an overview of the actors' first and last names and in how many movies they appear in.
 Question: Which actor is part of most movies??
 
@@ -96,7 +96,7 @@ Question: Which actor is part of most movies??
         ORDER BY 
             film_count DESC;
 
-## Question 6:
+## Question 6
 Create an overview of the addresses that are not associated to any customer.
 Question: How many addresses are that?
 
@@ -108,7 +108,7 @@ Question: How many addresses are that?
         WHERE c.address_id IS NULL;
 
 
-## Question 7:
+## Question 7
 Task: Create the overview of the sales to determine the from which city (we are interested in the city in which the customer lives, not where the store is) most sales occur.
 Question: What city is that and how much is the amount?
 
@@ -155,7 +155,7 @@ Question: Which country, city has the least sales?
         ORDER BY 
             total_amount ASC;
 
-## Question 9:
+## Question 9
 
 Create a list with the average of the sales amount each staff_id has per customer.
 Question: Which staff_id makes on average more revenue per customer?
@@ -178,7 +178,7 @@ Question: Which staff_id makes on average more revenue per customer?
         GROUP BY 
             staff_id;
 
-## Question 10:
+## Question 10
 
 EXTRACT + Uncorrelated subquery
 Task: Create a query that shows average daily revenue of all Sundays.
@@ -203,7 +203,7 @@ Task: Create a query that shows average daily revenue of all Sundays.
         GROUP BY 
             weekday;
 
-## Question 11:
+## Question 11
 
 Create a list of movies - with their length and their replacement cost - that are longer than the average length in each replacement cost group.
 Question: Which two movies are the shortest on that list and how long are they?
