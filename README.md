@@ -1,15 +1,15 @@
 # SQL---Online-Movie-Rental
-## Question 1:
+## Question 1
 
 Create a list of all the different (distinct) replacement costs of the films.
 Question: What's the lowest replacement cost?
 
 ## SQL Query
-  SELECT DISTINCT replacement_cost 
-  FROM film
-  ORDER BY 1;
+    SELECT DISTINCT replacement_cost 
+    FROM film
+    ORDER BY 1;
 
-## Question 2:
+## Question 2
 
 Write a query that gives an overview of how many films have replacements costs in the following cost ranges
 1.	low: 9.99 - 19.99
@@ -19,17 +19,17 @@ Write a query that gives an overview of how many films have replacements costs i
 Question: How many films have a replacement cost in the "low" group?
 
 ## SQL Query
-  SELECT 
-      CASE 
-          WHEN replacement_cost BETWEEN 9.99 AND 19.99 THEN 'low'
-          WHEN replacement_cost BETWEEN 20 AND 24.99 THEN 'medium'
-          ELSE 'high'
-      END as cost_range,
-      COUNT(*) AS count_of_films
-  FROM 
-      film
-  GROUP BY 
-      cost_range;
+    SELECT 
+        CASE 
+            WHEN replacement_cost BETWEEN 9.99 AND 19.99 THEN 'low'
+            WHEN replacement_cost BETWEEN 20 AND 24.99 THEN 'medium'
+            ELSE 'high'
+        END as cost_range,
+        COUNT(*) AS count_of_films
+    FROM 
+        film
+    GROUP BY 
+        cost_range;
       
 ## Question 3:
 Create a list of the film titles including their title, length, and category name ordered descendingly by length. Filter the results to only the movies in the category 'Drama' or 'Sports'.
