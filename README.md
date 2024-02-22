@@ -4,46 +4,55 @@
 Create a list of all the different (distinct) replacement costs of the films.
 Question: What's the lowest replacement cost?
 
-## Answer
+## SQL Query
   SELECT DISTINCT replacement_cost 
   FROM film
   ORDER BY 1;
 
-Question 2:
+## Question 2:
+
 Write a query that gives an overview of how many films have replacements costs in the following cost ranges
 1.	low: 9.99 - 19.99
 2.	medium: 20.00 - 24.99
 3.	high: 25.00 - 29.99
+
 Question: How many films have a replacement cost in the "low" group?
-Answer
-SELECT 
-    CASE 
-        WHEN replacement_cost BETWEEN 9.99 AND 19.99 THEN 'low'
-        WHEN replacement_cost BETWEEN 20 AND 24.99 THEN 'medium'
-        ELSE 'high'
-    END as cost_range,
-    COUNT(*) AS count_of_films
-FROM 
-    film
-GROUP BY 
-    cost_range;
-Question 3:
+
+## SQL Query
+  SELECT 
+      CASE 
+          WHEN replacement_cost BETWEEN 9.99 AND 19.99 THEN 'low'
+          WHEN replacement_cost BETWEEN 20 AND 24.99 THEN 'medium'
+          ELSE 'high'
+      END as cost_range,
+      COUNT(*) AS count_of_films
+  FROM 
+      film
+  GROUP BY 
+      cost_range;
+      
+## Question 3:
 Create a list of the film titles including their title, length, and category name ordered descendingly by length. Filter the results to only the movies in the category 'Drama' or 'Sports'.
 Question: In which category is the longest film and how long is it?
-SELECT 
-    f.title,
-    c.name,
-    f.length
-FROM 
-    film f
-LEFT JOIN 
-    film_category fc ON f.film_id = fc.film_id
-LEFT JOIN 
-    category c ON c.category_id = fc.category_id
-WHERE 
-    c.name IN ('Sports', 'Drama')
-ORDER BY 
-    f.length DESC;
+
+## SQL Query
+
+  SELECT 
+      f.title,
+      c.name,
+      f.length
+  FROM 
+      film f
+  LEFT JOIN 
+      film_category fc ON f.film_id = fc.film_id
+  LEFT JOIN 
+      category c ON c.category_id = fc.category_id
+  WHERE 
+      c.name IN ('Sports', 'Drama')
+  ORDER BY 
+      f.length DESC;
+
+      
 Question 4:
 Create an overview of how many movies (titles) there are in each category (name).
 Question: Which category (name) is the most common among the films?
